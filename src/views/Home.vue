@@ -1,7 +1,13 @@
 <template>
   <div class="home">
     <h1>Free Games Explorer</h1>
-    <div v-if="loading">Loading games...</div>
+    <div v-if="loading" class="grid">
+        <div v-for="n in 12" :key="n" class="card skeleton">
+            <div class="skeleton-img"></div>
+            <div class="skeleton-text"></div>
+            <div class="skeleton-text small"></div>
+        </div>
+    </div>
         <div v-else class="grid">
         <div v-for="game in games" :key="game.id" class="card" @click="goToGame(game.id)">
             <img :src="game.thumbnail" />

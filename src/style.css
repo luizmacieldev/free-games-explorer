@@ -113,3 +113,63 @@ body {
   color: #3b82f6;
   cursor: pointer;
 }
+
+
+/* ===============================
+   SKELETON LOADING
+================================= */
+
+/* Base skeleton style */
+.skeleton {
+  pointer-events: none;
+}
+
+/* Fake image */
+.skeleton-img {
+  width: 100%;
+  height: 140px;
+  background: #334155;
+}
+
+/* Fake text */
+.skeleton-text {
+  height: 14px;
+  margin: 10px;
+  border-radius: 4px;
+  background: #334155;
+}
+
+.skeleton-text.small {
+  width: 60%;
+}
+
+/* Shimmer animation */
+.skeleton-img,
+.skeleton-text {
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-img::after,
+.skeleton-text::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150px;
+  height: 100%;
+  width: 150px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  animation: shimmer 1.2s infinite;
+}
+
+/* Animation keyframes */
+@keyframes shimmer {
+  100% {
+    transform: translateX(300px);
+  }
+}

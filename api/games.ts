@@ -1,16 +1,15 @@
 export default async function handler(req, res) {
   try {
-    const url = new URL(req.url, `http://${req.headers.host}`);
-    const id = url.searchParams.get("id");
+    const query = req.url.split("?")[1] || "";
 
     const response = await fetch(
-      `https://www.freetogame.com/api/game?id=${id}`
+      `https://www.freetogame.com/api/games${query ? `?${query}` : ""}`
     );
 
     const data = await response.json();
 
     res.status(200).json(data);
   } catch (error) {
-    res.status(500).json({ error: "Failed to fetch game details" });
+    res.status(500).json({ error: "Failed to fetch games" });
   }
 }

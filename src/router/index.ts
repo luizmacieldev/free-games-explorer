@@ -3,11 +3,16 @@ import type { RouteRecordRaw } from "vue-router";
 
 import Home from "../views/Home.vue";
 import GameDetails from "../views/GameDetails.vue";
+import Favorites from "../views/Favorites.vue";
 
 const routes: RouteRecordRaw[] = [
   {
     path: "/",
     component: Home,
+  },
+   {
+    path: "/Favorites",
+    component: Favorites,
   },
   {
     path: "/game/:id",
